@@ -22,9 +22,10 @@ jobs:
           node-version: 16.13.2
       - name: Install docs-lint
         run: npm install -g @elastic/docs-lint
+      - name: Install js-yaml
+        run: npm install -g js-yaml
       - name: Install strip-ansi
         run: npm install -g strip-ansi
-        
       - name: Run docs-lint
         id: run_docs_lint
         run: |
