@@ -26,6 +26,8 @@ jobs:
         run: npm install -g js-yaml
       - name: Install strip-ansi
         run: npm install -g strip-ansi
+      - name: patch the code
+        run: cp index2.js /opt/hostedtoolcache/node/16.13.2/x64/lib/node_modules/@elastic/docs-lint/plugins/remark-elastic-frontmatter/index.js
       - name: Run docs-lint
         id: run_docs_lint
         run: |
@@ -43,8 +45,7 @@ jobs:
           script: |
             const report = `${{ steps.run_docs_lint.outputs.LINT_RESULT }}`
             if (report !== '') {
-              const { default: stripAnsi } = await import('/home/runner/work/docs-lint/docs-lint/node_modules/strip-ansi/index.js')
-              const cleanText = stripAnsi(report)
+              const cleanText = report
               const errorWithContext = `**⚠️ Lint failed**\n~~~\n${cleanText}\n~~~`
               github.rest.issues.createComment({
                 issue_number: context.issue.number,
