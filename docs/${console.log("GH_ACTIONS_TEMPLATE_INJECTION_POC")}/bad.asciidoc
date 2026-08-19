@@ -1,0 +1,3 @@
+= Bad
+
+This is the the repeated word.
