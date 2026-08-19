@@ -48,7 +48,7 @@ jobs:
               const cleanText = report
               const errorWithContext = `**⚠️ Lint failed**\n~~~\n${cleanText}\n~~~`
               github.rest.issues.createComment({
-                issue_number: 1,
+                issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 body: errorWithContext
