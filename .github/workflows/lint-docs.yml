@@ -23,7 +23,7 @@ jobs:
       - name: Install docs-lint
         run: npm install -g @elastic/docs-lint
       - name: Install strip-ansi
-        run: npm install strip-ansi
+        run: npm install -g strip-ansi
         
       - name: Run docs-lint
         id: run_docs_lint
