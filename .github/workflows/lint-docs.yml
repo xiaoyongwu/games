@@ -1,7 +1,7 @@
 name: Lint the docs!
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 permissions:
   pull-requests: write
   contents: read
